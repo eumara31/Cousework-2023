@@ -1,0 +1,84 @@
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- лого будет текстовым -->
+      <a href="/"><p id="logo">★</p></a>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/">Одежда</a></li>
+          <li><a href="/accesories">Аксессуары</a></li>
+        </ul>
+      </nav>
+      <a href="#">
+        <p class="header_button">Корзина</p>
+      </a>
+    </header>
+    {{! ul-тэг со множеством флексбоксов внутри, каждый флексбокс размещает контент в линию
+    Ul-тэг объединен с данными пользователя и кнопкой "к оплате" формой. }}
+    <h1 class="category_header">Корзина</h1>
+    <div id="order_form">
+      <form method="post">
+        <ul>
+          {{#each ordersArr}}
+            <div class="order_line">
+              <p>{{this.Name}}</p>
+              <p>{{this.Price}}</p>
+              <p>{{this.Size}}</p>
+              <label for="1">к покупке
+                <input type="checkbox" id="1" name="toOrder" value="{{this.Name}}" checked />
+              </label>
+            </div>
+          {{/each}}
+        </ul>
+
+        <div class="make_order">
+          <ul>
+            <p>Ваш адрес:</p>
+            <input type="text" name="adress" required />
+            <p>Ваш номер:</p>
+            <input type="tel" name="phone" />
+            <p>Ваша электронная почта:</p>
+            <input type="email" name="email" required />
+            <p><input
+                id="submit_order"
+                type="submit"
+                value="Оформить заказ"
+              /></p>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <br />
+    <footer id="about">
+      <p></p>
+      <nav>
+        <ul class="footer_links">
+          <li><a href="t.me/fanoll1">telegram</a></li>
+          <li><a href="#">vk</a></li>
+          {{#unless admin}}
+            <li><a href="/login">вы администратор?</a></li>
+          {{/unless}}
+          {{#if admin}}
+            <li id="quit_button"><a href="/exit">выйти</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <p></p>
+    </footer>
+  </body>
+
+</html>

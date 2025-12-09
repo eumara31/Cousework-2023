@@ -1,0 +1,179 @@
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- лого будет текстовым -->
+      <a href="/"><p id="logo">★</p></a>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/">Одежда</a></li>
+          <li><a href="/accesories">Аксессуары</a></li>
+        </ul>
+      </nav>
+      <a href="/bin">
+        <p class="header_button">Корзина</p>
+      </a>
+    </header>
+    {{#if admin}}
+      <h1 class="category_header" id="clothes">Вы вошли как администратор</h1>
+      <div class="admin_container">
+        <form id="creation" method="POST" enctype="multipart/form-data">
+          <div id="creation_container">
+            <div class="creation_block">
+              <h1>Добавить предмет</h1>
+              <p>Наименование:</p>
+              <input type="text" name="creationName" required />
+              <p>Описание (не более 500 символов):</p>
+              <textarea name="creationDescription"></textarea>
+              <p>Размеры через запятую:</p>
+              <input type="text" name="creationSizes" required />
+              <p>Цена:</p>
+              <input type="text" name="creationPrice" required />
+              <p>Количество на складе:</p>
+              <input type="text" name="creationQuantity" required />
+              <p>Фотография:</p>
+              <input
+                type="file"
+                id="image_input"
+                name="creationImage"
+                value="jpg/png/jpeg"
+                accept="image/png, image/jpeg, image/jpg"
+                required
+              />
+              <p> </p>
+              <input type="submit" value="Добавить" />
+            </div>
+          </div>
+        </form>
+        <form method="POST" enctype="multipart/form-data">
+          <div id="creation_container">
+            <div class="creation_block">
+              <h1>Изменить предмет</h1>
+              <p>Наименование:</p>
+              <input type="text" name="changeName" required />
+              <p>Новое описание (не более 500 символов):</p>
+              <textarea name="changeDescription"></textarea>
+              <p>Размеры через запятую:</p>
+              <input type="text" name="changeSizes" required />
+              <p>Новая цена:</p>
+              <input type="text" name="changePrice" required />
+              <p>Новое количество:</p>
+              <input type="text" name="changeQuantity" required />
+              <p>Новая фотография:</p>
+              <input
+                type="file"
+                id="image_input"
+                name="creationImage"
+                value="jpg/png/jpeg"
+                accept="image/png, image/jpeg, image/jpg"
+                required
+              />
+              <p> </p>
+              <input type="submit" value="Изменить" />
+            </div>
+          </div>
+        </form>
+
+        <form method="POST">
+          <div id="deletion_container">
+            <div class="deletion_block">
+              <h1>Удалить предмет</h1>
+              <p>Наименование:</p>
+              <input type="text" name="deletionName" required />
+              <p> </p>
+              <input id="delete_button" type="submit" value="Удалить" />
+            </div>
+          </div>
+        </form>
+
+        {{! <form method="POST">
+          <div id="deletion_container">
+            <div class="deletion_block">
+              <h1>Удалить предмет</h1>
+              <p>Наименование:</p>
+              <input type="text" name="pass" />
+              <input id="delete_button" type="submit" value="Удалить" />
+            </div>
+          </div>
+        </form> }}
+      </div>
+    {{/if}}
+    {{#if clothing_page}}
+      <h1 class="category_header" id="clothes">Одежда</h1>
+    {{/if}}
+    {{#if accesories_page}}
+      <h1 class="category_header" id="clothes">Аксессуары</h1>
+    {{/if}}
+    <div class="clothes_container">
+      {{#if clothing_page}}
+        {{#each resultArr}}
+          <a href="/clothing_{{this.id}}">
+            <div class="clothes_cell">
+              <div class="clothes_image_cell">
+                <img src="./images/{{this.Image}}" />
+              </div>
+              <div class="clothes_text_block">
+                <h3 class="price">{{this.Price}}</h3>
+                <p class="name">{{this.Name}}</p>
+                <p class="left_on_stock">Осталось на складе:
+                  {{this.Quantity}}</p>
+              </div>
+            </div>
+            <br />
+          </a>
+        {{/each}}
+      {{/if}}
+
+      {{#if accesories_page}}
+        {{#each resultArr}}
+          <a href="/accesories_{{this.id}}">
+            <div class="clothes_cell">
+              <div class="clothes_image_cell">
+                <img src="./images/{{this.Image}}" />
+              </div>
+              <div class="clothes_text_block">
+                <h3 class="price">{{this.Price}}</h3>
+                <p class="name">{{this.Name}}</p>
+                <p class="left_on_stock">Осталось на складе:
+                  {{this.Quantity}}</p>
+              </div>
+            </div>
+            <br />
+          </a>
+        {{/each}}
+      {{/if}}
+    </div>
+    <br>
+    <br>
+    <footer id="about">
+      <p></p>
+      <nav>
+        <ul class="footer_links">
+          <li><a href="https://t.me/cxvcxvrgt4w5t35wedr">telegram</a></li>
+          <li><a href="#">vk</a></li>
+          {{#unless admin}}
+            <li><a href="/login">вы администратор?</a></li>
+          {{/unless}}
+          {{#if admin}}
+            <li id="quit_button"><a href="/exit">выйти</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <p></p>
+    </footer>
+  </body>
+
+</html>

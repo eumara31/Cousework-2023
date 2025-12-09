@@ -1,0 +1,887 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Onest", serif;
+  font-weight: 500;
+}
+
+@keyframes animate {
+  0%, 100% {
+    background-position: left top;
+  }
+  25%{
+    background-position: right bottom;
+   }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }   
+}
+
+body {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#logo{
+  font-size: 88px;
+  line-height: 88px;
+  position: relative;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-image: url("./images/gradient.jpg");
+  animation: animate 15s ease-in-out infinite;
+  text-align: start;
+}
+
+header li,
+a,
+.header_button,
+button,
+p {
+  font-family: "Onest", serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: black;
+  /* #f1f0cc */
+  text-decoration: none;
+}
+
+header .header_button,
+button {
+  border: none;
+  background-color: transparent;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12%;
+  background: white;
+  text-decoration-style: wavy;
+  border-bottom: 2px dashed black;
+
+  position: sticky;
+  top: 0;
+}
+
+.nav_links {
+  list-style: none;
+}
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.category_header {
+  color: black;
+  font-size: 24px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 2%;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 0px 20px;
+}
+
+.clothes_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  margin-top: 2%;
+  width: 90%;
+  gap: 1%;
+}
+
+.clothes_cell {
+  width: 99%;
+  aspect-ratio: 1 / 1.2;
+}
+
+.clothes_cell img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: white;
+}
+
+.clothes_text_block {
+  width: 100%;
+}
+
+.price {
+  width: 30%;
+  font-size: 22px;
+  color: black;
+  margin: 2%;
+}
+
+.submitBuyForm {
+  width: 30%;
+  font-size: 22px;
+  color: black;
+  margin: 2%;
+  text-align: right;
+}
+
+.name {
+  width: 30%;
+  font-size: 16px;
+  color: black;
+  margin: 2%;
+}
+
+.left_on_stock {
+  width: 50%;
+  font-size: 16px;
+  color: black;
+  margin: 2%;
+  line-height: 16px;
+  vertical-align: top;
+  bottom: 20%;
+}
+
+footer {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 12%;
+  background: white;
+  margin-top: auto;
+}
+
+.footer_links {
+  list-style: none;
+}
+.footer_links li {
+  display: inline-block;
+  padding: 0px 20px;
+  border: 3px solid black;
+
+  border-radius: 25px;
+}
+
+#quit_button {
+  border: 3px solid red;
+}
+
+#quit_button a {
+  color: red;
+}
+
+.admin_container_flex {
+}
+
+.admin_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  height: fit-content;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.admin_container input[type="file"] {
+  width: 50%;
+}
+
+.admin_container h1 {
+  font-size: 24px;
+  margin: 2%;
+}
+
+.admin_container p {
+  font-size: 24px;
+  margin: 2%;
+}
+
+.admin_container input,
+button,
+textarea {
+  border: 3px solid black;
+  border-radius: 25px;
+  font-size: 24px;
+  background-color: transparent;
+  margin: 2%;
+  padding: 0px 20px;
+}
+
+.admin_container textarea {
+  height: 30%;
+}
+
+#creation_container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 90%;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+.creation_block {
+  margin: 0 auto;
+  height: fit-content;
+}
+
+#deletion_container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.deletion_block {
+  margin: 0 auto;
+}
+
+.deletion_block p {
+  margin: 2%;
+}
+
+.deletion_block #delete_button {
+  color: red;
+  border: 3px solid red;
+}
+
+#item_container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2%;
+
+  display: grid;
+  grid-template-columns: 1fr fit-content;
+  gap: 0;
+}
+
+#buy input,
+button {
+  border: 3px solid black;
+  border-radius: 25px;
+  font-size: 24px;
+  background-color: transparent;
+  margin: 0;
+  padding: 0px 20px;
+}
+
+.buy_block {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  overflow-wrap: anywhere;
+  height: 100%;
+  width: 100%;
+
+}
+
+.buy_block h1 {
+  font-size: 24px;
+}
+
+.buy_block p {
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.size_selector {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.size_selector div {
+  margin-right: 4%;
+}
+
+#item {
+  appearance: none;
+  /* Add if not using autoprefixer */
+  accent-color: black;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  width: 0.75em;
+  height: 0.75em;
+  border: 3px solid black;
+  border-radius: 4px;
+}
+
+#item:checked {
+  /* Add if not using autoprefixer */
+  accent-color: black;
+  /* For iOS < 15 to remove gradient background */
+  background-color: black;
+  /* Not removed via appearance */
+  margin: 0;
+  width: 0.75em;
+  height: 0.75em;
+  border: 3px solid black;
+  border-radius: 25px;
+}
+
+
+.size_selector label {
+  font-size: 24px;
+}
+
+.item_image {
+  width: 50%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.item_image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: white;
+}
+
+.size_and_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+.size {
+  width: 50%;
+}
+
+#order_form {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.order_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid black;
+}
+
+.order_line input {
+  /* Add if not using autoprefixer */
+  accent-color: black;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  width: 1em;
+  height: 1em;
+}
+.order_line p {
+  font-size: 24px;
+  width: 25%;
+  overflow-y: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+.order_line label {
+  font-size: 24px;
+  width: 25%;
+  text-align: center;
+}
+.make_order {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.make_order input {
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 25px;
+  font-size: 24px;
+  background-color: transparent;
+  margin: 0;
+  padding: 0px 20px;
+}
+
+#submit_order {
+  margin-top: 2%;
+}
+
+.login_div_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+.login_div {
+  height: 60%;
+  aspect-ratio: 1/1;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 2em;
+}
+
+.login_div h1 {
+  font-size: 24px;
+  margin: 2%;
+}
+
+.login_div p {
+  font-size: 24px;
+  margin: 2%;
+}
+
+.login_div input,
+button {
+  border: 3px solid black;
+  border-radius: 25px;
+  font-size: 24px;
+  background-color: transparent;
+  margin: 2%;
+  padding: 0px 20px;
+}
+
+
+@media screen and (max-width: 888px) {
+  @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Onest", serif;
+    font-weight: 500;
+  }
+
+  #logo{
+    font-size: 32px;
+    line-height: 20px;
+  }
+
+  body {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header li,
+  a,
+  .header_button,
+  button,
+  p {
+    font-family: "Onest", serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: black;
+    /* #f1f0cc */
+    text-decoration: none;
+  }
+
+  header .header_button,
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid black;
+
+    position: sticky;
+    top: 0;
+  }
+
+  .nav_links {
+    list-style: none;
+  }
+  .nav_links li {
+    display: inline-block;
+    padding: 0px 5px;
+    margin-bottom: 4px;
+  }
+
+  .category_header {
+    color: black;
+    font-size: 18px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 1px solid black;
+  }
+
+  .clothes_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    margin-top: 2%;
+    width: 90%;
+    gap: 1%;
+  }
+
+  .clothes_cell {
+    width: 99%;
+    aspect-ratio: 1 / 1.2;
+  }
+
+  .clothes_cell img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: white;
+  }
+
+  .clothes_text_block {
+    width: 100%;
+  }
+
+  .price {
+    width: 30%;
+    font-size: 16px;
+    color: black;
+    margin: 2%;
+  }
+
+  .name {
+    width: 30%;
+    font-size: 12px;
+    color: black;
+    margin: 2%;
+  }
+
+  .left_on_stock {
+    width: 50%;
+    font-size: 12px;
+    color: black;
+    margin: 2%;
+    line-height: 16px;
+    vertical-align: top;
+    bottom: 20%;
+  }
+
+  footer {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 12%;
+    background: white;
+    margin-top: auto;
+  }
+
+  .footer_links {
+    list-style: none;
+  }
+  .footer_links li {
+    display: inline-block;
+    padding: 0px 5px;
+    border: 1px solid black;
+
+    border-radius: 25px;
+  }
+
+  #quit_button {
+    border: 1px solid red;
+  }
+
+  #quit_button a {
+    color: red;
+  }
+
+  .admin_container_flex {
+  }
+
+  .admin_container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .admin_container input[type="file"] {
+    width: 80%;
+  }
+
+  .admin_container h1 {
+    font-size: 18px;
+    margin: 2%;
+  }
+
+  .admin_container p {
+    font-size: 14px;
+    margin: 2%;
+  }
+
+  .admin_container input,
+  button,
+  textarea {
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 14px;
+    background-color: transparent;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .admin_container textarea {
+    height: 30%;
+  }
+
+  #creation_container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin-left: 0;
+    height: fit-content;
+  }
+
+  .creation_block {
+    margin-left: 0;
+    height: fit-content;
+  }
+
+  #deletion_container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .deletion_block {
+    margin-left: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .deletion_block p {
+    margin: 2%;
+    width: 100%;
+  }
+
+  .deletion_block #delete_button {
+    color: red;
+    border: 1px solid red;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #item_container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2%;
+
+    display: grid;
+    grid-template-columns: repeat(1,  minmax(180px, 1fr));
+    grid-template-rows: fit-content 1fr;
+  }
+
+  #buy input,
+  button {
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 14px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0px 20px;
+  }
+  .DDD {
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 14px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0px 20px;
+  }
+
+  .buy_block {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    align-items: start;
+    height: 100%;
+  }
+
+  .buy_block h1 {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .buy_block p {
+    font-size: 14px;
+  }
+
+  .size_selector {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .size_selector div {
+    margin-right: 4%;
+  }
+
+  .size_selector input {
+    /* Add if not using autoprefixer */
+    accent-color: black;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    width: 0.75em;
+    height: 0.75em;
+  }
+
+  .size_selector label {
+    font-size: 14px;
+  }
+
+  .item_image {
+    width: 99%;
+    aspect-ratio: 1/1;
+    background-color: white;
+  }
+
+  .item_image img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: white;
+  }
+
+  .size_and_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .size {
+    width: 50%;
+  }
+  #order_form {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  .order_line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+
+  .order_line input {
+    /* Add if not using autoprefixer */
+    accent-color: black;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    width: 1em;
+    height: 1em;
+  }
+  .order_line p {
+    font-size: 12px;
+    width: 20%;
+    overflow-y: hidden;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .order_line label {
+    font-size: 12px;
+    width: 25%;
+    text-align: center;
+  }
+
+  .make_order {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  .make_order input {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0px 20px;
+  }
+
+  #submit_order {
+    margin-top: 2%;
+  }
+  .login_div_flex{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 80%;
+}
+
+.login_div{
+    height: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 2em;
+}
+
+.login_div h1{
+    font-size: 18px;
+    margin: 2%;
+}
+
+.login_div p{
+    font-size: 14px;
+    margin: 2%;
+}
+
+.login_div input, button{
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 14px;
+    background-color: transparent;
+    margin: 2%;
+    padding: 0px 20px;
+}
+#item {
+  appearance: none;
+  /* Add if not using autoprefixer */
+  accent-color: black;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  width: 0.75em;
+  height: 0.75em;
+  border: 3px solid black;
+  border-radius: 4px;
+}
+
+#item:checked {
+  /* Add if not using autoprefixer */
+  accent-color: black;
+  /* For iOS < 15 to remove gradient background */
+  background-color: black;
+  /* Not removed via appearance */
+  margin: 0;
+  width: 0.75em;
+  height: 0.75em;
+  border: 3px solid black;
+  border-radius: 25px;
+}
+}

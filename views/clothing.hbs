@@ -1,0 +1,83 @@
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- лого будет текстовым -->
+      <a href="/"><p id="logo">★</p></a>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/">Одежда</a></li>
+          <li><a href="/accesories">Аксессуары</a></li>
+        </ul>
+      </nav>
+      <a href="/bin">
+        <p class="header_button">Корзина</p>
+      </a>
+    </header>
+    {{! грид с двумя ячейками, в первой картинка, во второй форма для выбора размера и перехода в корзину }}
+    <div id="item_container">
+                            {{#each clothingArr as |clothing|}}
+      <div class="item_image">
+        <img src="./images/{{this.Image}}" />
+      </div>
+      <form id="buy" method="post">
+          <div class="buy_block">
+            <div>
+              <h1>{{clothing.Name}}</h1>
+              <p>{{clothing.Description}}</p>
+            </div>
+            <div class="size_and_price">
+              <div class="size">
+                <p>{{clothing.Price}}</p>
+                <form action="/bin" method="post">
+                <div class="size_selector">
+                  {{#each ../sizesArr as |size|}}
+                  <div>
+                    <label for="item">{{size}}</label>
+                    <input type="radio" id="item" name="sizeRadio" value="{{size}}" required/>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+              <div class="submitBuyForm">
+                <input id="AAAA" type="submit" value="в корзину" />
+              </div>
+              </form>
+            </div>
+          </div>
+      </form>
+    </div>
+       {{/each}}
+    <br>
+    <footer id="about">
+      <p></p>
+      <nav>
+        <ul class="footer_links">
+          <li><a href="t.me/fanoll1">telegram</a></li>
+          <li><a href="#">vk</a></li>
+          {{#unless admin}}
+            <li><a href="/login">вы администратор?</a></li>
+          {{/unless}}
+          {{#if admin}}
+            <li id="quit_button"><a href="/exit">выйти</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <p></p>
+    </footer>
+  </body>
+
+</html>
